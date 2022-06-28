@@ -5,8 +5,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
 export default () => {
-const [ready, setReady] = useState(false);
-const [token, setToken] = useState(false)
+  const [ready, setReady] = useState(false);
+  const [token, setToken] = useState(false);
 
   useEffect(() => {
     const initialize = async () => {
@@ -31,9 +31,9 @@ const [token, setToken] = useState(false)
     initialize();
   }, []);
 
-  return !ready ? null : !token ? (
+  return !ready ? null : token ? (
     <AuthenticationStack />
-  ) : token ? (
+  ) : !token ? (
     <ApplicationStack />
   ) : null;
 };
